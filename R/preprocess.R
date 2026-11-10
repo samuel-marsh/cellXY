@@ -161,7 +161,7 @@ Please use gene symbols as rownames.")
     
     cm.new <- cm.new[,!dnc]
     
-    cm.lib.size<- colSums(x[,colnames(cm.new)], na.rm=TRUE)
+    cm.lib.size<- Matrix::colSums(x[, colnames(cm.new), drop = FALSE], na.rm = TRUE)
     
     # log-normalisation performed for each cell
     # scaling performed for each gene
