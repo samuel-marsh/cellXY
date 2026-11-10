@@ -39,7 +39,7 @@
 
 preprocessDb<- function(x, genome=genome, qc=qc){
 
-  x <- as.matrix(x)
+  # x <- as.matrix(x)
   row.names(x)<- toupper(row.names(x))
 
   if (length(unique(colnames(x))) != ncol(x)){
@@ -84,10 +84,10 @@ preprocessDb<- function(x, genome=genome, qc=qc){
   }
 
   if (length(Xgene.set)>0){
-    cm.new["superX", ] <-colSums(x[Xgene.set,,drop = FALSE])
+    cm.new["superX", ] <- Matrix::colSums(x[Xgene.set,,drop = FALSE])
   }
   if (length(Xgene.set)>0){
-    cm.new["superY", ] <-colSums(x[Ygene.set,,drop = FALSE])
+    cm.new["superY", ] <- Matrix::colSums(x[Ygene.set,,drop = FALSE])
   }
 
 

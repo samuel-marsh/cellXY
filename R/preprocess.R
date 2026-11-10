@@ -72,7 +72,7 @@
 #'
 preprocess<- function(x, genome=genome, qc=qc){
 
-    x <- as.matrix(x)
+    # x <- as.matrix(x)
     row.names(x)<- toupper(row.names(x))
     
     if (is.null(row.names(x))){
@@ -122,10 +122,10 @@ Please use gene symbols as rownames.")
     }
     
     if (length(Xgene.set)>0){
-    cm.new["superX", ] <-colSums(x[Xgene.set,,drop = FALSE])
+    cm.new["superX", ] <- Matrix::colSums(x[Xgene.set,,drop = FALSE])
     }
     if (length(Ygene.set)>0){
-    cm.new["superY", ] <-colSums(x[Ygene.set,,drop = FALSE])
+    cm.new["superY", ] <- Matrix::colSums(x[Ygene.set,,drop = FALSE])
     }
     
     
